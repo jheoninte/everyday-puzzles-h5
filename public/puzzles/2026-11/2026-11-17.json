@@ -1,0 +1,204 @@
+{
+  "date": "2026-11-17",
+  "version": 1,
+  "games": {
+    "sudoku": {
+      "difficulty": "easy",
+      "size": 4,
+      "subgridRows": 2,
+      "subgridCols": 2,
+      "maxMistakes": 3,
+      "hintCount": 3,
+      "givens": [
+        [
+          4,
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          3,
+          0
+        ],
+        [
+          0,
+          4,
+          0,
+          2
+        ]
+      ],
+      "solution": [
+        [
+          4,
+          1,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          4,
+          1
+        ],
+        [
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          3,
+          4,
+          1,
+          2
+        ]
+      ]
+    },
+    "password": {
+      "wordLength": 5,
+      "maxAttempts": 6,
+      "answer": "APPLE",
+      "hint": "A familiar fruit, often red or green",
+      "validDictionary": [
+        "APPLE",
+        "BREAD",
+        "CLOCK",
+        "DREAM",
+        "EARTH",
+        "FLAME",
+        "GHOST",
+        "HOUSE",
+        "IMAGE",
+        "JUICE",
+        "KNIFE",
+        "LEMON",
+        "MONEY",
+        "NIGHT",
+        "OCEAN",
+        "PLANT",
+        "QUEEN",
+        "RIVER",
+        "SNAKE",
+        "TRAIN",
+        "UNCLE",
+        "VOICE",
+        "WATER",
+        "YOUTH",
+        "ZEBRA",
+        "BEACH",
+        "CHAIR",
+        "DANCE",
+        "EAGLE",
+        "FROST"
+      ]
+    },
+    "hashtag": {
+      "gridSize": 5,
+      "maxMoves": 15,
+      "solutionGrid": [
+        [
+          "G",
+          "R",
+          "E",
+          "A",
+          "T"
+        ],
+        [
+          "L",
+          null,
+          "L",
+          null,
+          "R"
+        ],
+        [
+          "A",
+          "L",
+          "I",
+          "V",
+          "E"
+        ],
+        [
+          "S",
+          null,
+          "T",
+          null,
+          "N"
+        ],
+        [
+          "S",
+          "P",
+          "E",
+          "E",
+          "D"
+        ]
+      ],
+      "initialGrid": [
+        [
+          "L",
+          "R",
+          "R",
+          "A",
+          "L"
+        ],
+        [
+          "G",
+          null,
+          "V",
+          null,
+          "E"
+        ],
+        [
+          "S",
+          "T",
+          "N",
+          "L",
+          "P"
+        ],
+        [
+          "A",
+          null,
+          "E",
+          null,
+          "I"
+        ],
+        [
+          "S",
+          "E",
+          "E",
+          "T",
+          "D"
+        ]
+      ]
+    },
+    "anygram": {
+      "baseLetters": [
+        "M",
+        "A",
+        "S",
+        "T",
+        "E",
+        "R"
+      ],
+      "validWords": [
+        "MASTER",
+        "STEAM",
+        "STARE",
+        "SMART",
+        "TEAMS",
+        "MEAT",
+        "SEAT",
+        "TEAR",
+        "REST",
+        "STAR"
+      ]
+    }
+  }
+}

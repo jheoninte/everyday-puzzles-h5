@@ -2,3 +2,5 @@ node_modules
 dist
 .DS_Store
 *.local
+.devserver.out.log
+.devserver.err.log

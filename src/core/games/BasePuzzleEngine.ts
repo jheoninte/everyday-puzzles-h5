@@ -11,6 +11,8 @@ export interface BasePuzzleState {
   hintsUsed: number;
   revivesUsed: number;
   mistakeCount: number;
+  bonusHints?: number;
+  rewardedAdIds?: string[];
 }
 
 export interface HintResult<TState> {
@@ -25,6 +27,14 @@ export interface PuzzleReward {
   speedBonusXp: number;
   totalXp: number;
   coinsEarned: number;
+}
+
+export function calculatePuzzleReward(state: BasePuzzleState): PuzzleReward {
+  if (state.status !== 'WON') return { baseXp: 0, noMistakeBonusXp: 0, speedBonusXp: 0, totalXp: 0, coinsEarned: 0 };
+  const baseXp = 50;
+  const noMistakeBonusXp = state.mistakeCount === 0 ? 25 : 0;
+  const speedBonusXp = state.elapsedSeconds <= 120 ? 15 : 0;
+  return { baseXp, noMistakeBonusXp, speedBonusXp, totalXp: baseXp + noMistakeBonusXp + speedBonusXp, coinsEarned: 10 + (state.hintsUsed === 0 ? 5 : 0) };
 }
 
 export abstract class BasePuzzleEngine<
@@ -46,34 +56,35 @@ export abstract class BasePuzzleEngine<
   public abstract applyHint(): HintResult<TState>;
   public abstract revive(): boolean;
 
+  public getHintsLeft(): number { return Math.max(0, 3 + (this.state.bonusHints ?? 0) - this.state.hintsUsed); }
+  public grantRewardedHint(rewardId: string): boolean {
+    if (this.state.status !== 'PLAYING' || this.state.rewardedAdIds?.includes(rewardId)) return false;
+    this.state.bonusHints = (this.state.bonusHints ?? 0) + 1;
+    this.state.rewardedAdIds = [...(this.state.rewardedAdIds ?? []), rewardId];
+    this.notify();
+    return true;
+  }
+
   public getState(): TState {
     return JSON.parse(JSON.stringify(this.state)) as TState;
   }
 
   public restoreState(savedState: TState): void {
     this.state = JSON.parse(JSON.stringify(savedState)) as TState;
+    // Error notices are transient; older saves may contain text in another language.
+    if ('lastError' in this.state) (this.state as TState & { lastError: string | null }).lastError = null;
     this.notify();
   }
 
-  public tickSecond(): void {
+  public tickSecond(seconds = 1): void {
     if (this.state.status === 'PLAYING') {
-      this.state.elapsedSeconds += 1;
+      this.state.elapsedSeconds += Math.max(0, Math.floor(seconds));
       this.notify();
     }
   }
 
   public calculateReward(): PuzzleReward {
-    if (this.state.status !== 'WON') {
-      return { baseXp: 0, noMistakeBonusXp: 0, speedBonusXp: 0, totalXp: 0, coinsEarned: 0 };
-    }
-
-    const baseXp = 50;
-    const noMistakeBonusXp = this.state.mistakeCount === 0 ? 25 : 0;
-    const speedBonusXp = this.state.elapsedSeconds <= 120 ? 15 : 0;
-    const totalXp = baseXp + noMistakeBonusXp + speedBonusXp;
-    const coinsEarned = 10 + (this.state.hintsUsed === 0 ? 5 : 0);
-
-    return { baseXp, noMistakeBonusXp, speedBonusXp, totalXp, coinsEarned };
+    return calculatePuzzleReward(this.state);
   }
 
   public subscribe(listener: (state: TState) => void): () => void {

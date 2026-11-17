@@ -1,0 +1,9 @@
+{
+  "appId": "com.interestllc.everydaypuzzles",
+  "appName": "Everyday Puzzles",
+  "removeAdsProductId": "com.interestllc.everydaypuzzles.removeads",
+  "adsMode": "test",
+  "admobIosAppId": "ca-app-pub-3940256099942544~1458002511",
+  "admobIosRewardedId": "ca-app-pub-3940256099942544/1712485313",
+  "admobIosInterstitialId": "ca-app-pub-3940256099942544/4411468910"
+}

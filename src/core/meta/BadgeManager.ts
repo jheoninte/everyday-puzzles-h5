@@ -2,14 +2,14 @@ import { BadgeDefinition, BadgeState } from '../types/MissionAndBadgeTypes';
 import { PuzzlePlayEvent } from './MissionEngine';
 
 export const BADGE_CATALOG: BadgeDefinition[] = [
-  { id: 'first_step', title: '첫걸음 (First Step)', description: '첫 번째 미니퍼즐을 성공적으로 클리어했습니다.', icon: '🌱', tier: 'BRONZE' },
-  { id: 'daily_grand_slam', title: '데일리 그랜드슬램', description: '하루에 준비된 4종의 미니게임을 모두 올클리어했습니다.', icon: '👑', tier: 'GOLD' },
-  { id: 'streak_7_days', title: '일주일의 불꽃', description: '7일 연속 플레이 스트릭을 달성했습니다.', icon: '🔥', tier: 'SILVER' },
-  { id: 'streak_30_days', title: '불멸의 퍼즐러', description: '30일 연속 플레이 스트릭을 달성했습니다.', icon: '🌋', tier: 'GOLD' },
-  { id: 'sniper_5', title: '무결점 스나이퍼', description: '단 한 번의 실수도 없이 퍼즐을 통산 5회 클리어했습니다.', icon: '🎯', tier: 'SILVER' },
-  { id: 'lightning_brain', title: '섬광의 두뇌 (Secret)', description: '60초 이내에 힌트 없이 퍼즐을 클리어했습니다.', icon: '⚡', tier: 'SPECIAL', isSecret: true },
-  { id: 'time_traveler', title: '아카이브 탐험가', description: '지난 날짜의 퍼즐을 통산 3회 클리어했습니다.', icon: '⏳', tier: 'BRONZE' },
-  { id: 'puzzle_centurion', title: '백전노장', description: '누적 50개의 미니퍼즐을 클리어했습니다.', icon: '🏆', tier: 'GOLD' },
+  { id: 'first_step', title: 'First Step', description: 'Solve your first puzzle.', icon: '🌱', tier: 'BRONZE' },
+  { id: 'daily_grand_slam', title: 'Pack Master', description: 'Solve all four games in a pack.', icon: '👑', tier: 'GOLD' },
+  { id: 'streak_7_days', title: 'A Week of Sparks', description: 'Reach a seven-day playing streak.', icon: '🔥', tier: 'SILVER' },
+  { id: 'streak_30_days', title: 'Unstoppable Puzzler', description: 'Reach a 30-day playing streak.', icon: '🌋', tier: 'GOLD' },
+  { id: 'sniper_5', title: 'Perfect Aim', description: 'Solve five puzzles without a mistake.', icon: '🎯', tier: 'SILVER' },
+  { id: 'lightning_brain', title: 'Lightning Mind', description: 'Solve a puzzle in 60 seconds or less without hints.', icon: '⚡', tier: 'SPECIAL', isSecret: true },
+  { id: 'time_traveler', title: 'Archive Explorer', description: 'Solve three puzzles from the archive.', icon: '⏳', tier: 'BRONZE' },
+  { id: 'puzzle_centurion', title: 'Puzzle Veteran', description: 'Solve 50 puzzles.', icon: '🏆', tier: 'GOLD' },
 ];
 
 export class BadgeManager {
@@ -37,7 +37,7 @@ export class BadgeManager {
     state.stats.totalPuzzlesCleared += 1;
     if (event.mistakeCount === 0) state.stats.perfectNoMistakeClears += 1;
     if (event.elapsedSeconds <= 60 && event.hintsUsed === 0) state.stats.speedClearsUnder60s += 1;
-    if (event.puzzleDate !== event.todayDate) state.stats.archivePuzzlesCleared += 1;
+    if (event.puzzleDate < event.todayDate) state.stats.archivePuzzlesCleared += 1;
 
     const tryUnlock = (badgeId: string, condition: boolean) => {
       if (!condition || state.unlocked[badgeId]) return;

@@ -15,18 +15,18 @@ export class MissionEngine {
 
     const easyPool: Omit<DailyMissionItem, 'currentCount' | 'isClaimed'>[] = [
       {
-        id: ${todayDate}-m1,
-        title: '오늘의 두뇌 워밍업',
-        description: '아무 미니게임이나 1판 클리어하기',
+        id: `${todayDate}-m1-any`,
+        title: 'Brain Warm-up',
+        description: 'Solve any puzzle',
         conditionType: 'PLAY_ANY_GAMES',
         targetCount: 1,
         rewardXp: 30,
         rewardCoins: 15,
       },
       {
-        id: ${todayDate}-m1,
-        title: '단어 추론가',
-        description: 'Password 미니게임 1판 클리어하기',
+        id: `${todayDate}-m1-password`,
+        title: 'Word Detective',
+        description: 'Solve one Password puzzle',
         conditionType: 'PLAY_SPECIFIC_GAME',
         targetGameId: 'password',
         targetCount: 1,
@@ -34,9 +34,9 @@ export class MissionEngine {
         rewardCoins: 15,
       },
       {
-        id: ${todayDate}-m1,
-        title: '와플 마스터',
-        description: 'Hashtag 미니게임 1판 클리어하기',
+        id: `${todayDate}-m1-hashtag`,
+        title: 'Grid Master',
+        description: 'Solve one Hashtag puzzle',
         conditionType: 'PLAY_SPECIFIC_GAME',
         targetGameId: 'hashtag',
         targetCount: 1,
@@ -47,27 +47,27 @@ export class MissionEngine {
 
     const skillPool: Omit<DailyMissionItem, 'currentCount' | 'isClaimed'>[] = [
       {
-        id: ${todayDate}-m2,
-        title: '완벽주의자',
-        description: '실수 없이 퍼즐 1판 클리어하기',
+        id: `${todayDate}-m2-perfect`,
+        title: 'Perfectionist',
+        description: 'Solve a puzzle without mistakes',
         conditionType: 'NO_MISTAKE_CLEAR',
         targetCount: 1,
         rewardXp: 50,
         rewardCoins: 25,
       },
       {
-        id: ${todayDate}-m2,
-        title: '자력 해결사',
-        description: '힌트를 쓰지 않고 퍼즐 2판 클리어하기',
+        id: `${todayDate}-m2-nohint`,
+        title: 'On Your Own',
+        description: 'Solve two puzzles without hints',
         conditionType: 'NO_HINT_CLEAR',
         targetCount: 2,
         rewardXp: 60,
         rewardCoins: 30,
       },
       {
-        id: ${todayDate}-m2,
-        title: '번개 같은 두뇌',
-        description: '90초 이내에 퍼즐 1판 클리어하기',
+        id: `${todayDate}-m2-speed`,
+        title: 'Quick Thinker',
+        description: 'Solve a puzzle in 90 seconds or less',
         conditionType: 'SPEED_CLEAR_UNDER_90',
         targetCount: 1,
         rewardXp: 55,
@@ -77,18 +77,18 @@ export class MissionEngine {
 
     const challengePool: Omit<DailyMissionItem, 'currentCount' | 'isClaimed'>[] = [
       {
-        id: ${todayDate}-m3,
-        title: '데일리 그랜드슬램',
-        description: '오늘 미니게임 3판 이상 클리어하기',
+        id: `${todayDate}-m3-slam`,
+        title: 'Daily Grand Slam',
+        description: 'Solve three puzzles today',
         conditionType: 'PLAY_ANY_GAMES',
         targetCount: 3,
         rewardXp: 80,
         rewardCoins: 40,
       },
       {
-        id: ${todayDate}-m3,
-        title: '시간 여행자',
-        description: '지난 날짜 아카이브 퍼즐 1판 클리어하기',
+        id: `${todayDate}-m3-archive`,
+        title: 'Time Traveler',
+        description: 'Solve one archive puzzle',
         conditionType: 'PLAY_ARCHIVE_PUZZLE',
         targetCount: 1,
         rewardXp: 70,
@@ -117,7 +117,10 @@ export class MissionEngine {
     const newlyCompletedMissions: DailyMissionItem[] = [];
 
     for (const mission of state.missions) {
-      if (mission.currentCount >= mission.targetCount) continue;
+      if (mission.currentCount >= mission.targetCount) {
+        continue;
+      }
+
       let matched = false;
 
       switch (mission.conditionType) {
@@ -137,11 +140,13 @@ export class MissionEngine {
           matched = event.elapsedSeconds <= 90;
           break;
         case 'PLAY_ARCHIVE_PUZZLE':
-          matched = event.puzzleDate !== event.todayDate;
+          matched = event.puzzleDate < event.todayDate;
           break;
       }
 
-      if (!matched) continue;
+      if (!matched) {
+        continue;
+      }
 
       mission.currentCount = Math.min(mission.targetCount, mission.currentCount + 1);
       if (mission.currentCount >= mission.targetCount) {
@@ -185,4 +190,3 @@ export class MissionEngine {
     return value.split('').reduce((sum, char) => sum + char.charCodeAt(0), 0);
   }
 }
-

@@ -40,7 +40,10 @@ export type PasswordAction =
 export class PasswordEngine extends BasePuzzleEngine<PasswordConfig, PasswordState, PasswordAction> {
   protected createInitialState(config: PasswordConfig): PasswordState {
     const board = Array.from({ length: config.maxAttempts }, () =>
-      Array.from({ length: config.wordLength }, () => ({ letter: '', state: 'EMPTY' as LetterState })),
+      Array.from({ length: config.wordLength }, () => ({
+        letter: '',
+        state: 'EMPTY' as LetterState,
+      })),
     );
 
     return {
@@ -61,7 +64,9 @@ export class PasswordEngine extends BasePuzzleEngine<PasswordConfig, PasswordSta
   }
 
   public submitAction(action: PasswordAction): PasswordState {
-    if (this.state.status !== 'PLAYING') return this.getState();
+    if (this.state.status !== 'PLAYING') {
+      return this.getState();
+    }
 
     this.state.lastError = null;
 
@@ -82,8 +87,9 @@ export class PasswordEngine extends BasePuzzleEngine<PasswordConfig, PasswordSta
   }
 
   public applyHint(): HintResult<PasswordState> {
+    if (this.getHintsLeft() <= 0) return { success: false, message: 'You have used all your free hints.', state: this.getState() };
     if (this.state.status !== 'PLAYING') {
-      return { success: false, message: '이미 종료된 퍼즐입니다.', state: this.getState() };
+      return { success: false, message: 'This puzzle has ended.', state: this.getState() };
     }
 
     const hiddenIndex = Array.from({ length: this.state.wordLength }, (_, index) => index).find(
@@ -91,7 +97,7 @@ export class PasswordEngine extends BasePuzzleEngine<PasswordConfig, PasswordSta
     );
 
     if (hiddenIndex === undefined) {
-      return { success: false, message: '더 이상 공개할 힌트가 없습니다.', state: this.getState() };
+      return { success: false, message: 'There are no more letters to reveal.', state: this.getState() };
     }
 
     this.state.revealedIndices.push(hiddenIndex);
@@ -101,13 +107,16 @@ export class PasswordEngine extends BasePuzzleEngine<PasswordConfig, PasswordSta
 
     return {
       success: true,
-      message: ${hiddenIndex + 1}번째 글자가 공개되었습니다.,
+      message: `Revealed letter ${hiddenIndex + 1}.`,
       state: this.getState(),
     };
   }
 
   public revive(): boolean {
-    if (this.state.status !== 'LOST') return false;
+    if (this.state.status !== 'LOST') {
+      return false;
+    }
+
     this.state.status = 'PLAYING';
     this.state.revivesUsed += 1;
     this.state.currentInput = '';
@@ -116,14 +125,23 @@ export class PasswordEngine extends BasePuzzleEngine<PasswordConfig, PasswordSta
   }
 
   private handleInputLetter(letter: string): void {
-    if (!/^[A-Z]$/.test(letter)) return;
-    if (this.state.currentInput.length >= this.state.wordLength) return;
+    if (!/^[A-Z]$/.test(letter)) {
+      return;
+    }
+
+    if (this.state.currentInput.length >= this.state.wordLength) {
+      return;
+    }
+
     this.state.currentInput += letter;
     this.syncCurrentRowWithInput();
   }
 
   private handleDeleteLetter(): void {
-    if (this.state.currentInput.length === 0) return;
+    if (this.state.currentInput.length === 0) {
+      return;
+    }
+
     this.state.currentInput = this.state.currentInput.slice(0, -1);
     this.syncCurrentRowWithInput();
   }
@@ -145,12 +163,12 @@ export class PasswordEngine extends BasePuzzleEngine<PasswordConfig, PasswordSta
     const answer = this.config.answer.toUpperCase();
 
     if (guess.length < this.state.wordLength) {
-      this.state.lastError = '글자 수가 부족합니다.';
+      this.state.lastError = 'Enter a complete word.';
       return;
     }
 
     if (this.config.validDictionary?.length && !this.config.validDictionary.includes(guess)) {
-      this.state.lastError = '사전에 등록되지 않은 단어입니다.';
+      this.state.lastError = 'That word is not in the dictionary.';
       return;
     }
 
@@ -203,7 +221,10 @@ export class PasswordEngine extends BasePuzzleEngine<PasswordConfig, PasswordSta
     }
 
     for (let index = 0; index < this.state.wordLength; index += 1) {
-      if (result[index] === 'CORRECT') continue;
+      if (result[index] === 'CORRECT') {
+        continue;
+      }
+
       const char = guess[index];
       if ((answerLetterCounts[char] || 0) > 0) {
         result[index] = 'PRESENT';
@@ -229,4 +250,3 @@ export class PasswordEngine extends BasePuzzleEngine<PasswordConfig, PasswordSta
     }
   }
 }
-

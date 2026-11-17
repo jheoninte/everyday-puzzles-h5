@@ -1,0 +1,7 @@
+{
+  "name": "@everyday-puzzles/purchases",
+  "version": "0.1.0",
+  "private": true,
+  "main": "index.js",
+  "capacitor": { "ios": { "src": "ios" } }
+}

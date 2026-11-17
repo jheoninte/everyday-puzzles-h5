@@ -15,6 +15,11 @@ const STATE_CLASS: Record<string, string> = {
   EMPTY: 'bg-slate-600 text-white',
 };
 
+function getKeyClassName(letter: string, stateMap: Record<string, string>): string {
+  const stateClassName = STATE_CLASS[stateMap[letter] || 'EMPTY'];
+  return `h-11 min-w-0 flex-1 rounded-md px-0 text-sm font-black ${stateClassName}`;
+}
+
 export function VirtualKeyboard({ onLetter, onEnter, onDelete, stateMap = {} }: VirtualKeyboardProps) {
   return (
     <div className="space-y-2 px-2 pb-4">
@@ -23,7 +28,7 @@ export function VirtualKeyboard({ onLetter, onEnter, onDelete, stateMap = {} }: 
           {row.split('').map((letter) => (
             <button
               key={letter}
-              className={h-11 rounded-md px-3 text-sm font-black }
+              className={getKeyClassName(letter, stateMap)}
               onClick={() => onLetter(letter)}
               type="button"
             >
@@ -43,4 +48,3 @@ export function VirtualKeyboard({ onLetter, onEnter, onDelete, stateMap = {} }: 
     </div>
   );
 }
-

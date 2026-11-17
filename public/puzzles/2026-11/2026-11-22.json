@@ -1,0 +1,203 @@
+{
+  "date": "2026-11-22",
+  "version": 1,
+  "games": {
+    "sudoku": {
+      "difficulty": "hard",
+      "size": 4,
+      "subgridRows": 2,
+      "subgridCols": 2,
+      "maxMistakes": 3,
+      "hintCount": 3,
+      "givens": [
+        [
+          3,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ]
+      ],
+      "solution": [
+        [
+          3,
+          2,
+          4,
+          1
+        ],
+        [
+          4,
+          1,
+          3,
+          2
+        ],
+        [
+          1,
+          4,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          1,
+          4
+        ]
+      ]
+    },
+    "password": {
+      "wordLength": 5,
+      "maxAttempts": 6,
+      "answer": "FLAME",
+      "hint": "A bright tongue of fire",
+      "validDictionary": [
+        "APPLE",
+        "BREAD",
+        "CLOCK",
+        "DREAM",
+        "EARTH",
+        "FLAME",
+        "GHOST",
+        "HOUSE",
+        "IMAGE",
+        "JUICE",
+        "KNIFE",
+        "LEMON",
+        "MONEY",
+        "NIGHT",
+        "OCEAN",
+        "PLANT",
+        "QUEEN",
+        "RIVER",
+        "SNAKE",
+        "TRAIN",
+        "UNCLE",
+        "VOICE",
+        "WATER",
+        "YOUTH",
+        "ZEBRA",
+        "BEACH",
+        "CHAIR",
+        "DANCE",
+        "EAGLE",
+        "FROST"
+      ]
+    },
+    "hashtag": {
+      "gridSize": 5,
+      "maxMoves": 15,
+      "solutionGrid": [
+        [
+          "G",
+          "R",
+          "E",
+          "A",
+          "T"
+        ],
+        [
+          "L",
+          null,
+          "L",
+          null,
+          "R"
+        ],
+        [
+          "A",
+          "L",
+          "I",
+          "V",
+          "E"
+        ],
+        [
+          "S",
+          null,
+          "T",
+          null,
+          "N"
+        ],
+        [
+          "S",
+          "P",
+          "E",
+          "E",
+          "D"
+        ]
+      ],
+      "initialGrid": [
+        [
+          "V",
+          "R",
+          "S",
+          "A",
+          "L"
+        ],
+        [
+          "N",
+          null,
+          "R",
+          null,
+          "P"
+        ],
+        [
+          "L",
+          "E",
+          "I",
+          "G",
+          "E"
+        ],
+        [
+          "E",
+          null,
+          "T",
+          null,
+          "T"
+        ],
+        [
+          "S",
+          "L",
+          "E",
+          "A",
+          "D"
+        ]
+      ]
+    },
+    "anygram": {
+      "baseLetters": [
+        "B",
+        "R",
+        "I",
+        "D",
+        "G",
+        "E"
+      ],
+      "validWords": [
+        "BRIDGE",
+        "BRIDE",
+        "BIRD",
+        "RIDE",
+        "DIRE",
+        "GRID",
+        "BED",
+        "RED",
+        "BIG"
+      ]
+    }
+  }
+}

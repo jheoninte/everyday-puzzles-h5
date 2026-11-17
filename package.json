@@ -6,22 +6,36 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:cloud": "node tools/test-cloud-save.mjs",
+    "content:audit": "node tools/audit-content.mjs",
+    "content:sudoku": "node tools/generate-sudoku.mjs",
+    "content:stage": "node tools/stage-content.mjs",
+    "test:content": "node tools/test-content.mjs",
+    "ios:add": "cap add ios --packagemanager SPM",
+    "ios:sync": "npm run build && cap sync ios && node tools/configure-ios.mjs",
+    "ios:open": "cap open ios"
   },
   "dependencies": {
+    "@capacitor-community/admob": "8.4.1",
+    "@capacitor/app": "8.1.2",
+    "@capacitor/core": "8.6.2",
+    "@capacitor/ios": "8.6.2",
+    "@capacitor/preferences": "8.0.1",
+    "@everyday-puzzles/purchases": "file:native/purchases",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
+    "@capacitor/cli": "8.6.2",
     "@types/node": "^20.14.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react": "4.7.0",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.4",
     "typescript": "^5.5.2",
-    "vite": "^5.3.1"
+    "vite": "6.4.6"
   }
 }
-

@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-16",
+  "version": 1,
+  "games": {
+    "password": {
+      "wordLength": 5,
+      "maxAttempts": 6,
+      "answer": "APPLE",
+      "hint": "A popular red or green fruit",
+      "validDictionary": ["APPLE", "ALERT", "ANGLE", "AMPLE", "GRAPE", "PLANE", "SMART"]
+    },
+    "hashtag": {
+      "gridSize": 5,
+      "solutionGrid": [
+        ["S", "M", "A", "R", "T"],
+        ["P", null, "L", null, "I"],
+        ["A", "L", "I", "G", "N"],
+        ["C", null, "K", null, "E"],
+        ["E", "V", "E", "N", "T"]
+      ],
+      "maxMoves": 15
+    },
+    "anygram": {
+      "baseLetters": ["P", "U", "Z", "Z", "L", "E"],
+      "validWords": ["PUZZLE", "PULE", "LUZE", "UP"]
+    },
+    "sudoku": {
+      "difficulty": "easy",
+      "size": 4,
+      "subgridRows": 2,
+      "subgridCols": 2,
+      "maxMistakes": 3,
+      "hintCount": 3,
+      "givens": [
+        [1, 0, 0, 4],
+        [0, 4, 1, 0],
+        [0, 1, 4, 0],
+        [4, 0, 0, 1]
+      ],
+      "solution": [
+        [1, 2, 3, 4],
+        [3, 4, 1, 2],
+        [2, 1, 4, 3],
+        [4, 3, 2, 1]
+      ]
+    }
+  }
+}

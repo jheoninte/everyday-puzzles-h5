@@ -1,0 +1,662 @@
+{
+  "scope": "Current playable candidates, not release-certified content",
+  "packs": [
+    {
+      "id": "2026-11-16",
+      "errors": [
+        "hashtag: Missing or invalid Hashtag initial grid",
+        "anygram: Anygram needs 5–8 target words for release",
+        "sudoku: Sudoku has multiple solutions"
+      ],
+      "details": {
+        "password": "APPLE"
+      }
+    },
+    {
+      "id": "2026-11-17",
+      "errors": [
+        "anygram: Anygram needs 5–8 target words for release",
+        "password: duplicates 2026-11-16"
+      ],
+      "details": {
+        "password": "APPLE",
+        "hashtag": {
+          "words": [
+            "GREAT",
+            "ALIVE",
+            "SPEED",
+            "GLASS",
+            "ELITE",
+            "TREND"
+          ],
+          "solutionSwaps": 8,
+          "witness": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                4
+              ]
+            ],
+            [
+              [
+                0,
+                4
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            [
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            [
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            [
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            [
+              [
+                2,
+                4
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            [
+              [
+                3,
+                2
+              ],
+              [
+                4,
+                3
+              ]
+            ]
+          ]
+        },
+        "sudoku": {
+          "clues": 8,
+          "solutions": 1
+        }
+      }
+    },
+    {
+      "id": "2026-11-18",
+      "errors": [
+        "anygram: Anygram needs 5–8 target words for release",
+        "hashtag: duplicates 2026-11-17"
+      ],
+      "details": {
+        "password": "BREAD",
+        "hashtag": {
+          "words": [
+            "GREAT",
+            "ALIVE",
+            "SPEED",
+            "GLASS",
+            "ELITE",
+            "TREND"
+          ],
+          "solutionSwaps": 6,
+          "witness": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                1
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            [
+              [
+                0,
+                3
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            [
+              [
+                0,
+                4
+              ],
+              [
+                4,
+                4
+              ]
+            ],
+            [
+              [
+                1,
+                4
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            [
+              [
+                3,
+                2
+              ],
+              [
+                4,
+                1
+              ]
+            ]
+          ]
+        },
+        "sudoku": {
+          "clues": 8,
+          "solutions": 1
+        }
+      }
+    },
+    {
+      "id": "2026-11-19",
+      "errors": [
+        "anygram: Anygram needs 5–8 target words for release",
+        "sudoku: Sudoku has multiple solutions",
+        "hashtag: duplicates 2026-11-17"
+      ],
+      "details": {
+        "password": "CLOCK",
+        "hashtag": {
+          "words": [
+            "GREAT",
+            "ALIVE",
+            "SPEED",
+            "GLASS",
+            "ELITE",
+            "TREND"
+          ],
+          "solutionSwaps": 8,
+          "witness": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            [
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            [
+              [
+                0,
+                4
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            [
+              [
+                2,
+                0
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            [
+              [
+                2,
+                1
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            [
+              [
+                2,
+                2
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            [
+              [
+                2,
+                4
+              ],
+              [
+                4,
+                4
+              ]
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "id": "2026-11-20",
+      "errors": [
+        "anygram: Anygram needs 5–8 target words for release",
+        "hashtag: duplicates 2026-11-17"
+      ],
+      "details": {
+        "password": "DREAM",
+        "hashtag": {
+          "words": [
+            "GREAT",
+            "ALIVE",
+            "SPEED",
+            "GLASS",
+            "ELITE",
+            "TREND"
+          ],
+          "solutionSwaps": 9,
+          "witness": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            [
+              [
+                0,
+                3
+              ],
+              [
+                4,
+                3
+              ]
+            ],
+            [
+              [
+                0,
+                4
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            [
+              [
+                1,
+                0
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            [
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            [
+              [
+                2,
+                1
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            [
+              [
+                2,
+                3
+              ],
+              [
+                4,
+                3
+              ]
+            ],
+            [
+              [
+                3,
+                4
+              ],
+              [
+                4,
+                3
+              ]
+            ]
+          ]
+        },
+        "sudoku": {
+          "clues": 6,
+          "solutions": 1
+        }
+      }
+    },
+    {
+      "id": "2026-11-21",
+      "errors": [
+        "anygram: Anygram needs 5–8 target words for release",
+        "hashtag: duplicates 2026-11-17"
+      ],
+      "details": {
+        "password": "EARTH",
+        "hashtag": {
+          "words": [
+            "GREAT",
+            "ALIVE",
+            "SPEED",
+            "GLASS",
+            "ELITE",
+            "TREND"
+          ],
+          "solutionSwaps": 8,
+          "witness": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            [
+              [
+                0,
+                2
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            [
+              [
+                0,
+                4
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            [
+              [
+                1,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ],
+            [
+              [
+                1,
+                2
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            [
+              [
+                2,
+                0
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            [
+              [
+                2,
+                2
+              ],
+              [
+                4,
+                3
+              ]
+            ],
+            [
+              [
+                3,
+                4
+              ],
+              [
+                4,
+                2
+              ]
+            ]
+          ]
+        },
+        "sudoku": {
+          "clues": 6,
+          "solutions": 1
+        }
+      }
+    },
+    {
+      "id": "2026-11-22",
+      "errors": [
+        "anygram: Anygram needs 5–8 target words for release",
+        "hashtag: duplicates 2026-11-17"
+      ],
+      "details": {
+        "password": "FLAME",
+        "hashtag": {
+          "words": [
+            "GREAT",
+            "ALIVE",
+            "SPEED",
+            "GLASS",
+            "ELITE",
+            "TREND"
+          ],
+          "solutionSwaps": 9,
+          "witness": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            [
+              [
+                0,
+                2
+              ],
+              [
+                3,
+                0
+              ]
+            ],
+            [
+              [
+                0,
+                4
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            [
+              [
+                1,
+                0
+              ],
+              [
+                3,
+                4
+              ]
+            ],
+            [
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            [
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                0
+              ]
+            ],
+            [
+              [
+                2,
+                0
+              ],
+              [
+                4,
+                3
+              ]
+            ],
+            [
+              [
+                2,
+                1
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            [
+              [
+                4,
+                1
+              ],
+              [
+                4,
+                3
+              ]
+            ]
+          ]
+        },
+        "sudoku": {
+          "clues": 5,
+          "solutions": 1
+        }
+      }
+    }
+  ],
+  "lexicalReview": "English word validity, obscurity and clues need editorial review; structural checks do not establish dictionary membership.",
+  "summary": {
+    "packs": 7,
+    "puzzles": 28,
+    "packsPassingStructuralChecks": 0,
+    "errors": 16
+  }
+}

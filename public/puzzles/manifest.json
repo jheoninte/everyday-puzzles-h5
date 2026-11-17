@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "packs": [
+    { "id": "2026-11-16", "title": "First Steps", "order": 1, "difficulty": "easy", "path": "puzzles/2026-11/2026-11-16.json", "revision": 1 },
+    { "id": "2026-11-17", "title": "Wake Up Your Mind", "order": 2, "difficulty": "easy", "path": "puzzles/2026-11/2026-11-17.json", "revision": 1 },
+    { "id": "2026-11-18", "title": "Little Discoveries", "order": 3, "difficulty": "easy", "path": "puzzles/2026-11/2026-11-18.json", "revision": 1 },
+    { "id": "2026-11-19", "title": "Think It Through", "order": 4, "difficulty": "medium", "path": "puzzles/2026-11/2026-11-19.json", "revision": 1 },
+    { "id": "2026-11-20", "title": "A Moment of Focus", "order": 5, "difficulty": "medium", "path": "puzzles/2026-11/2026-11-20.json", "revision": 1 },
+    { "id": "2026-11-21", "title": "A Puzzle Stroll", "order": 6, "difficulty": "medium", "path": "puzzles/2026-11/2026-11-21.json", "revision": 1 },
+    { "id": "2026-11-22", "title": "The Final Challenge", "order": 7, "difficulty": "hard", "path": "puzzles/2026-11/2026-11-22.json", "revision": 1 }
+  ]
+}

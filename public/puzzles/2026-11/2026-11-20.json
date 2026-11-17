@@ -1,0 +1,203 @@
+{
+  "date": "2026-11-20",
+  "version": 1,
+  "games": {
+    "sudoku": {
+      "difficulty": "medium",
+      "size": 4,
+      "subgridRows": 2,
+      "subgridCols": 2,
+      "maxMistakes": 3,
+      "hintCount": 3,
+      "givens": [
+        [
+          0,
+          4,
+          0,
+          3
+        ],
+        [
+          2,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          3,
+          0,
+          4,
+          0
+        ]
+      ],
+      "solution": [
+        [
+          1,
+          4,
+          2,
+          3
+        ],
+        [
+          2,
+          3,
+          1,
+          4
+        ],
+        [
+          4,
+          1,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          4,
+          1
+        ]
+      ]
+    },
+    "password": {
+      "wordLength": 5,
+      "maxAttempts": 6,
+      "answer": "DREAM",
+      "hint": "Something you experience while asleep",
+      "validDictionary": [
+        "APPLE",
+        "BREAD",
+        "CLOCK",
+        "DREAM",
+        "EARTH",
+        "FLAME",
+        "GHOST",
+        "HOUSE",
+        "IMAGE",
+        "JUICE",
+        "KNIFE",
+        "LEMON",
+        "MONEY",
+        "NIGHT",
+        "OCEAN",
+        "PLANT",
+        "QUEEN",
+        "RIVER",
+        "SNAKE",
+        "TRAIN",
+        "UNCLE",
+        "VOICE",
+        "WATER",
+        "YOUTH",
+        "ZEBRA",
+        "BEACH",
+        "CHAIR",
+        "DANCE",
+        "EAGLE",
+        "FROST"
+      ]
+    },
+    "hashtag": {
+      "gridSize": 5,
+      "maxMoves": 15,
+      "solutionGrid": [
+        [
+          "G",
+          "R",
+          "E",
+          "A",
+          "T"
+        ],
+        [
+          "L",
+          null,
+          "L",
+          null,
+          "R"
+        ],
+        [
+          "A",
+          "L",
+          "I",
+          "V",
+          "E"
+        ],
+        [
+          "S",
+          null,
+          "T",
+          null,
+          "N"
+        ],
+        [
+          "S",
+          "P",
+          "E",
+          "E",
+          "D"
+        ]
+      ],
+      "initialGrid": [
+        [
+          "L",
+          "R",
+          "R",
+          "V",
+          "L"
+        ],
+        [
+          "S",
+          null,
+          "L",
+          null,
+          "N"
+        ],
+        [
+          "A",
+          "P",
+          "I",
+          "E",
+          "E"
+        ],
+        [
+          "G",
+          null,
+          "T",
+          null,
+          "E"
+        ],
+        [
+          "S",
+          "T",
+          "E",
+          "A",
+          "D"
+        ]
+      ]
+    },
+    "anygram": {
+      "baseLetters": [
+        "F",
+        "L",
+        "O",
+        "W",
+        "E",
+        "R"
+      ],
+      "validWords": [
+        "FLOWER",
+        "LOWER",
+        "FLOW",
+        "WOLF",
+        "ROLE",
+        "LORE",
+        "FOWL",
+        "ROW",
+        "LOW"
+      ]
+    }
+  }
+}

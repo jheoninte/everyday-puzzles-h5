@@ -1,28 +1,45 @@
-# Everyday Puzzles: Mini Games
+# Everyday Puzzles
 
-이 저장소는 Vertex AI Search 세션에서 진행된 기획/구조 설계를 바탕으로, 다른 에이전트가 바로 이어서 개발할 수 있도록 정리한 HTML5 프로토타입 스타터입니다.
+iOS 우선 출시를 목표로 개발 중인 React + TypeScript + Vite 퍼즐 게임입니다. 출시 범위와 검수 기준은 [출시 명세](docs/RELEASE_V1_SPEC.md)를 따릅니다.
 
-## 포함 내용
+## 로컬 실행
 
-- React + TypeScript + Vite 기반 프로토타입 뼈대
-- Headless Core 패턴 기반 퍼즐 엔진 베이스
-- Password(Wordle형) 미니게임 코어/뷰 예시
-- 일일 미션/배지 시스템 코어와 UI 모달
-- 프로젝트 구조, BM, 엔진 전환 방향을 정리한 명세서
-- Vertex 대화에서 추출한 주요 설계 메모
+```sh
+npm ci
+npm run dev -- --host 127.0.0.1 --port 4173
+```
 
-## 빠른 시작
+[로컬 게임 열기](http://127.0.0.1:4173/). 배포용 검사는 `npm run build`로 실행합니다.
 
-`ash
-npm install
-npm run dev
-`
+## 현재 플레이 흐름
 
-## 권장 다음 작업
+- 홈 → 퍼즐 팩 → 게임 한 종 → 결과 → 다음 퍼즐 또는 재도전
+- Password, Hashtag, Anygram, 4×4 Sudoku 엔진과 자동 저장
+- 모든 팩을 합산한 XP·배지·완료 기록과 기기 내 개인 최고 기록
+- 팩에서 1/3/4종을 처음 완료하면 각각 30/50/80 XP 자동 지급
+- 상점·구매 복원 화면과 네이티브 결제 연결을 위한 서비스 경계
 
-1. Hashtag, Anygram, Sudoku 엔진 추가
-2. StreakManager, XpCalculator, EconomyManager 고도화
-3. 퍼즐 데이터 생성 스크립트 	ools/ 보강
-4. 다국어 토크나이저/오토마타 추가
-5. Godot/Unity 전환 전제의 데이터 스키마 확정
+현재 영어 UI로 플레이할 수 있는 샘플은 7팩/28문제입니다. 출시 목표인 20팩/80문제와 약 3시간 분량은 콘텐츠 추가 및 플레이 검수가 필요합니다. Capacitor iOS 프로젝트, StoreKit 2 구매 플러그인, AdMob 테스트 광고, 선택형 iCloud 저장·복원 코드를 추가했습니다. App Store Connect 앱과 광고 제거 상품은 등록했으며, 네이티브 컴파일·실기기 검증·CloudKit 계정 설정은 남아 있습니다. 웹 미리보기는 실제 광고나 결제를 실행하지 않습니다. Game Center는 아직 연결하지 않았습니다.
 
+## 콘텐츠 추가
+
+`public/puzzles/manifest.json`에 팩의 고유 ID·제목·순서·난이도·JSON 경로·리비전을 등록합니다. 각 JSON에는 네 게임의 설정이 모두 있어야 합니다. 배포 경로는 Vite의 `BASE_URL`을 따릅니다.
+
+기존 팩 ID는 저장 기록과 연결되므로 변경하거나 다른 문제에 재사용하지 않습니다. 현재 날짜 형태 ID도 일정 제한 없이 컬렉션 식별자로 사용합니다. 새 콘텐츠는 앱 업데이트에 포함하며 별도 서버를 요구하지 않습니다.
+
+[콘텐츠 검증·Gemini 작업 절차](docs/content/WORKFLOW.md)를 따릅니다. 유일해답 스도쿠 20개는 `content/staging/sudoku.json`에 준비되어 있으며 공개 팩에 아직 통합하지 않았습니다. `npm run test:content`와 `npm run test:cloud`로 콘텐츠 도구 및 저장·복원 모의 검증을 실행할 수 있습니다. `npm run content:audit`는 현재 샘플의 알려진 출시 조건 미충족을 보고하므로 종료 코드 1을 반환합니다.
+
+## 저장과 보상
+
+- 입력·힌트·게임 결과를 자동 저장하고, 다른 화면에서 돌아오거나 새로고침하면 복원합니다.
+- 시간은 게임의 첫 조작부터 측정합니다. 다른 화면·숨겨진 탭·닫힌 앱에서 보낸 시간은 제외합니다.
+- 첫 완료까지 실패한 시도의 시간·실수·힌트를 합산합니다. 재도전으로 무실수 보상을 초기화할 수 없습니다.
+- 퍼즐 첫 완료 보상과 팩 목표는 한 번만 지급합니다. 연습 재플레이는 개인 최고 기록만 갱신합니다.
+- `everyday-puzzles-h5:player:v2`에 누적 프로필을 저장합니다. 기존 날짜별 XP·배지·완료 기록은 최초 실행 때 옮기고 기존 보드 ID를 유지합니다. 이전 코인 경제는 사용하지 않습니다.
+- 저장소를 사용할 수 없으면 안내합니다. 손상되었거나 지원하지 않는 프로필은 자동으로 덮어쓰지 않습니다.
+- 설정의 초기화는 전체 플레이 기록에 적용합니다. 구매 권한 관련 키는 삭제하지 않습니다.
+- iOS는 Capacitor Preferences, 웹은 localStorage를 사용합니다. `localhost`와 `127.0.0.1`의 기록은 별개입니다. iPhone용 선택형 iCloud 수동 저장·복원은 코드 구현 상태이며 실제 기기·계정 검증이 필요합니다. 자동 기기 간 동기화는 제공하지 않습니다.
+
+## iOS 출시까지 남은 주요 작업
+
+[Mac mini와 계정 연결 안내](docs/IOS_SETUP.md)를 따라 `npm ci`, `npm run ios:sync`, `npm run ios:open`으로 진행합니다. Bundle ID는 `com.interestllc.everydaypuzzles`입니다. iPhone에서 네이티브 광고·결제·동의·구매 복원을 검증하고 콘텐츠·개인정보·스토어 자료를 완성해야 합니다. Game Center 순위표는 필요성이 확정되면 연결합니다. 최종 서명·실기기 검증·TestFlight 업로드는 Mac mini에서 진행합니다.

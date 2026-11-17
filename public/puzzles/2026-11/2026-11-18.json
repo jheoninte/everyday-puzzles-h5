@@ -1,0 +1,203 @@
+{
+  "date": "2026-11-18",
+  "version": 1,
+  "games": {
+    "sudoku": {
+      "difficulty": "easy",
+      "size": 4,
+      "subgridRows": 2,
+      "subgridCols": 2,
+      "maxMistakes": 3,
+      "hintCount": 3,
+      "givens": [
+        [
+          2,
+          4,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          4
+        ],
+        [
+          4,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          4,
+          1
+        ]
+      ],
+      "solution": [
+        [
+          2,
+          4,
+          1,
+          3
+        ],
+        [
+          1,
+          3,
+          2,
+          4
+        ],
+        [
+          4,
+          1,
+          3,
+          2
+        ],
+        [
+          3,
+          2,
+          4,
+          1
+        ]
+      ]
+    },
+    "password": {
+      "wordLength": 5,
+      "maxAttempts": 6,
+      "answer": "BREAD",
+      "hint": "A baked loaf made from flour and dough",
+      "validDictionary": [
+        "APPLE",
+        "BREAD",
+        "CLOCK",
+        "DREAM",
+        "EARTH",
+        "FLAME",
+        "GHOST",
+        "HOUSE",
+        "IMAGE",
+        "JUICE",
+        "KNIFE",
+        "LEMON",
+        "MONEY",
+        "NIGHT",
+        "OCEAN",
+        "PLANT",
+        "QUEEN",
+        "RIVER",
+        "SNAKE",
+        "TRAIN",
+        "UNCLE",
+        "VOICE",
+        "WATER",
+        "YOUTH",
+        "ZEBRA",
+        "BEACH",
+        "CHAIR",
+        "DANCE",
+        "EAGLE",
+        "FROST"
+      ]
+    },
+    "hashtag": {
+      "gridSize": 5,
+      "maxMoves": 15,
+      "solutionGrid": [
+        [
+          "G",
+          "R",
+          "E",
+          "A",
+          "T"
+        ],
+        [
+          "L",
+          null,
+          "L",
+          null,
+          "R"
+        ],
+        [
+          "A",
+          "L",
+          "I",
+          "V",
+          "E"
+        ],
+        [
+          "S",
+          null,
+          "T",
+          null,
+          "N"
+        ],
+        [
+          "S",
+          "P",
+          "E",
+          "E",
+          "D"
+        ]
+      ],
+      "initialGrid": [
+        [
+          "S",
+          "P",
+          "E",
+          "E",
+          "D"
+        ],
+        [
+          "L",
+          null,
+          "L",
+          null,
+          "N"
+        ],
+        [
+          "A",
+          "L",
+          "I",
+          "V",
+          "A"
+        ],
+        [
+          "S",
+          null,
+          "R",
+          null,
+          "R"
+        ],
+        [
+          "G",
+          "T",
+          "E",
+          "E",
+          "T"
+        ]
+      ]
+    },
+    "anygram": {
+      "baseLetters": [
+        "P",
+        "L",
+        "A",
+        "N",
+        "E",
+        "T"
+      ],
+      "validWords": [
+        "PLANET",
+        "PANEL",
+        "PLANT",
+        "PLATE",
+        "LATE",
+        "TALE",
+        "PALE",
+        "PLAN",
+        "TAPE"
+      ]
+    }
+  }
+}
